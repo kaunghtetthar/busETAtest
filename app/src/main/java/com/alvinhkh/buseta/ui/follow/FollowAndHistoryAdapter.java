@@ -1,5 +1,6 @@
 package com.alvinhkh.buseta.ui.follow;
 
+import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -129,6 +130,7 @@ public class FollowAndHistoryAdapter extends RecyclerView.Adapter<RecyclerView.V
         return object;
     }
 
+    @SuppressLint("CheckResult")
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         if (viewHolder instanceof FollowViewHolder) {

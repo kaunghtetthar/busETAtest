@@ -26,7 +26,7 @@ public class AdViewUtil {
         }
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         if (preferences == null) {
-            adViewContainer.setVisibility(View.VISIBLE);
+            adViewContainer.setVisibility(View.GONE);
             return adView;
         }
         boolean hideAdView = preferences.getBoolean(C.PREF.AD_HIDE, false);
@@ -37,7 +37,7 @@ public class AdViewUtil {
             adView.setAdListener(new AdListener() {
                 @Override
                 public void onAdLoaded() {
-                    adViewContainer.setVisibility(View.VISIBLE);
+                    adViewContainer.setVisibility(View.GONE);
                 }
 
                 @Override

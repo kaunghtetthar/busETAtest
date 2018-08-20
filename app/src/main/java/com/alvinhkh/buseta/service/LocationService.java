@@ -12,7 +12,6 @@ import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
 
 import com.alvinhkh.buseta.C;
@@ -27,8 +26,6 @@ import com.google.android.gms.location.LocationServices;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import timber.log.Timber;
-
-import static android.R.attr.action;
 
 public class LocationService extends Service implements
         ConnectionCallbacks, OnConnectionFailedListener, LocationListener {
@@ -142,7 +139,7 @@ public class LocationService extends Service implements
      */
     @Override
     public void onLocationChanged(Location location) {
-        Timber.d("onLocationChanged");
+        Timber.d("onLocationChanged" );
         mCurrentLocation = location;
         sendLocationUpdate();
     }
@@ -151,7 +148,7 @@ public class LocationService extends Service implements
     public void onConnectionSuspended(int cause) {
         // The connection to Google Play services was lost for some reason. We call connect() to
         // attempt to re-establish the connection.
-        Timber.i("Connection suspended");
+        Timber.i("Connection suspended" );
         mGoogleApiClient.connect();
     }
 

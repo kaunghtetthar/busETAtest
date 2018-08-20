@@ -19,7 +19,7 @@ def versionBuild = 8
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.alvinhkh.buseta"
         minSdkVersion 14

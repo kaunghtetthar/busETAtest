@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,12 +23,12 @@ import android.widget.Toast;
 
 import com.alvinhkh.buseta.C;
 import com.alvinhkh.buseta.R;
-import com.alvinhkh.buseta.model.SearchHistory;
 import com.alvinhkh.buseta.lwb.LwbService;
 import com.alvinhkh.buseta.lwb.model.LwbRouteBound;
 import com.alvinhkh.buseta.lwb.model.network.LwbRouteBoundRes;
 import com.alvinhkh.buseta.model.BusRoute;
 import com.alvinhkh.buseta.model.BusRouteStop;
+import com.alvinhkh.buseta.model.SearchHistory;
 import com.alvinhkh.buseta.provider.SuggestionProvider;
 import com.alvinhkh.buseta.provider.SuggestionTable;
 import com.alvinhkh.buseta.ui.BaseActivity;
@@ -283,6 +284,8 @@ public class LwbActivity extends BaseActivity
                         busRoute.setName(routeNo);
                         busRoute.setSequence(String.valueOf(i++));
                         pagerAdapter.addSequence(busRoute);
+                        Log.v("TAG_KK", "bus_arr :" + String.valueOf(busRoute));
+
                     }
                 }
             }

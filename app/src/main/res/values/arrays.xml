@@ -2,9 +2,9 @@
 <resources>
     
     <string-array name="app_theme_entries">
-        <item>自動</item>
-        <item>日間</item>
-        <item>夜間</item>
+        <item>Automatic</item>
+        <item>Days</item>
+        <item>Night time</item>
     </string-array>
 
     <string-array name="app_theme_values">
@@ -16,11 +16,13 @@
     <string-array name="kmb_api_entries">
         <item>舊API</item>
         <item>新API（會出現香港字問題）</item>
+        <item> My API </item>
     </string-array>
 
     <string-array name="kmb_api_values">
         <item>lwb_web</item>
         <item>kmb_web</item>
+        <item>my_api</item>
     </string-array>
 
 </resources>

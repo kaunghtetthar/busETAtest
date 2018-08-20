@@ -47,6 +47,7 @@ public class BusRouteStop implements Parcelable {
         + ", latitude=" + this.latitude + ", location=" + this.location + ", longitude=" + this.longitude
         + ", name=" + this.name + ", origin=" + this.origin + ", route=" + this.route
         + ", sequence=" + this.sequence + "}";
+
   }
 
   /**

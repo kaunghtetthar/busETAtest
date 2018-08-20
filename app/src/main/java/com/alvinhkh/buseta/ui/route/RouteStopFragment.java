@@ -1,6 +1,7 @@
 package com.alvinhkh.buseta.ui.route;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -528,6 +529,7 @@ public class RouteStopFragment extends BottomSheetDialogFragment implements OnCo
         }
     }
 
+    @SuppressLint("CheckResult")
     private void onRefresh() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         vh.followButton.setOnClickListener(null);

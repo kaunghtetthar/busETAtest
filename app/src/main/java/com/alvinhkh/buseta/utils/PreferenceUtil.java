@@ -7,13 +7,11 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.widget.Toast;
 
 import com.alvinhkh.buseta.BuildConfig;
 import com.alvinhkh.buseta.R;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 public class PreferenceUtil {

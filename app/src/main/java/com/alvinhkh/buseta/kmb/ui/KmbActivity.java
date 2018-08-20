@@ -14,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +25,6 @@ import android.widget.Toast;
 
 import com.alvinhkh.buseta.C;
 import com.alvinhkh.buseta.R;
-import com.alvinhkh.buseta.model.SearchHistory;
 import com.alvinhkh.buseta.kmb.KmbService;
 import com.alvinhkh.buseta.kmb.model.KmbRoute;
 import com.alvinhkh.buseta.kmb.model.KmbRouteBound;
@@ -32,6 +32,7 @@ import com.alvinhkh.buseta.kmb.model.network.KmbRouteBoundRes;
 import com.alvinhkh.buseta.kmb.model.network.KmbSpecialRouteRes;
 import com.alvinhkh.buseta.model.BusRoute;
 import com.alvinhkh.buseta.model.BusRouteStop;
+import com.alvinhkh.buseta.model.SearchHistory;
 import com.alvinhkh.buseta.provider.SuggestionProvider;
 import com.alvinhkh.buseta.provider.SuggestionTable;
 import com.alvinhkh.buseta.ui.BaseActivity;
@@ -291,6 +292,7 @@ public class KmbActivity extends BaseActivity
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribeWith(getSpecialRouteObserver(bound.route)));
                     }
+                    Log.v("TAG_KK", "Test2 :" + String.valueOf(res));
                 }
             }
 
@@ -327,6 +329,7 @@ public class KmbActivity extends BaseActivity
                         Timber.d("%s", busRoute.toString());
                         pagerAdapter.addSequence(busRoute);
                     }
+
                 }
             }
 

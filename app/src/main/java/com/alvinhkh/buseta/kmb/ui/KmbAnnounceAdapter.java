@@ -1,5 +1,6 @@
 package com.alvinhkh.buseta.kmb.ui;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -111,6 +112,7 @@ public class KmbAnnounceAdapter
             context = itemView.getContext();
         }
 
+        @SuppressLint("CheckResult")
         @Override
         public void bindItem(KmbAnnounceAdapter adapter, Item item, int position) {
             final KmbAnnounce announce = (KmbAnnounce) item.getObject();

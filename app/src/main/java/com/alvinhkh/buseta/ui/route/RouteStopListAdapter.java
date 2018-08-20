@@ -1,5 +1,6 @@
 package com.alvinhkh.buseta.ui.route;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -8,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
@@ -32,7 +32,6 @@ import com.alvinhkh.buseta.ui.ArrayListRecyclerViewAdapter;
 import com.alvinhkh.buseta.utils.ArrivalTimeUtil;
 import com.alvinhkh.buseta.utils.BusRouteStopUtil;
 import com.alvinhkh.buseta.utils.FollowStopUtil;
-import com.alvinhkh.buseta.utils.FontChangeCrawler;
 import com.alvinhkh.buseta.utils.PreferenceUtil;
 
 import java.text.DecimalFormat;
@@ -165,6 +164,7 @@ public class RouteStopListAdapter
             // fontChanger.replaceFonts((ViewGroup) itemView);
         }
 
+        @SuppressLint("CheckResult")
         @Override
         public void bindItem(RouteStopListAdapter adapter, Item item, int position) {
             BusRouteStop stop = (BusRouteStop) item.getObject();

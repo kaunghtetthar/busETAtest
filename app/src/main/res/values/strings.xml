@@ -2,129 +2,131 @@
 <resources>
 
     <string name="app_name">BusETA</string>
-    <string name="launcher_name">巴士ETA</string>
-    <string name="channel_name_eta">ETA 通知</string>
-    <string name="channel_description_eta">ETA 通知</string>
-    <string name="channel_name_arrival_alert">到站提示通知</string>
-    <string name="channel_description_arrival_alert">到站提示通知</string>
-    <string name="channel_name_foreground">「%1$s」背景執行需要用到的前台通知</string>
-    <string name="channel_description_foreground">長按可永久隱藏此類別通知（不會影響ETA通知）</string>
+    <string name="launcher_name">BusETA</string>
+    <string name="channel_name_eta">ETA Notice</string>
+    <string name="channel_description_eta">ETA Notice</string>
+    <string name="channel_name_arrival_alert">Arrival Notice</string>
+    <string name="channel_description_arrival_alert">Arrival Notice</string>
+    <string name="channel_name_foreground">「%1$s」Background notification required for foreground execution</string>
+    <string name="channel_description_foreground">Long press to permanently hide this category notification (does not affect ETA notifications) </string>
 
-    <string name="action_settings">設定</string>
-    <string name="action_search">搜尋</string>
-    <string name="action_share">分享</string>
-    <string name="action_refresh">重新載入</string>
-    <string name="follow">追蹤</string>
-    <string name="action_unfollow">停止追蹤</string>
-    <string name="action_confirm">確認</string>
-    <string name="action_cancel">取消</string>
-    <string name="action_update">更新</string>
-    <string name="action_notification">顯示通知</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_share">Share</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="follow">Follow</string>
+    <string name="action_unfollow">Unfollow</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_update">Update</string>
+    <string name="action_notification">Alarm</string>
 
-    <string name="dest">往</string>
-    <string name="destination">往%s</string>
-    <string name="disabled">禁用</string>
+    <string name="dest">To</string>
+    <string name="destination">To %s</string>
+    <string name="disabled">Disabled</string>
     <string name="dots" translatable="false">&#8230;</string>
-    <string name="enabled">啟用</string>
-    <string name="eta">到站時間預報</string>
-    <string name="hint_enter_route">輸入路線&#8230;</string>
+    <string name="enabled">Enabled</string>
+    <string name="eta">eta</string>
+    <string name="hint_enter_route">hint_enter_route&#8230;</string>
     <string name="interpunct" translatable="false">\u00A0&#183;\u00A0</string>
-    <string name="minutes">%1$s分鐘</string>
-    <string name="now">現在</string>
-    <string name="open_source_license">開放原始碼授權</string>
-    <string name="orig">從</string>
-    <string name="origin">從%s</string>
-    <string name="passenger_notice">乘客通告</string>
-    <string name="search_route">搜尋路線</string>
-    <string name="start_search_route">按右下角按鈕，開始搜尋路線</string>
-    <string name="stop_name">站名</string>
+    <string name="minutes">%1$sminutes</string>
+    <string name="now">now</string>
+    <string name="open_source_license">Open source authorization</string>
+    <string name="orig">From</string>
+    <string name="origin">From %s</string>
+    <string name="passenger_notice">Notice</string>
+    <string name="search_route">Search route</string>
+    <string name="start_search_route">Press the bottom right button to start searching for directions</string>
+    <string name="stop_name">Stop Name</string>
 
-    <string name="label_last_updated">數據最後更新：</string>
-    <string name="label_server_time">獲取數據（伺服器時間）：</string>
+    <string name="label_last_updated">Last Updated：</string>
+    <string name="label_server_time">Get data (server time) : </string>
 
-    <string name="title_settings">設定</string>
-    <string name="title_app_theme">主題</string>
-    <string name="category_about">關於</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_app_theme">Theme</string>
+    <string name="category_about">About</string>
     <string name="title_app_name" translatable="false">%s \u00A9 2017</string>
-    <string name="title_app_version">版本</string>
+    <string name="title_app_version">App Version</string>
     <string name="summary_app_version" translatable="false">%1$s (%2$s)</string>
-    <string name="title_developer">開發者</string>
+    <string name="title_developer">Developer</string>
     <string name="summary_developer" translatable="false">AlvinHKH</string>
-    <string name="category_statement">聲明</string>
+    <string name="category_statement">Category Statement</string>
     <string name="summary_statement">All data come from official website. \nNo guarantee that the accuracy or timeliness of information provided.</string>
 
-    <string name="title_load_wheelchair_icon">輪椅圖示</string>
-    <string name="title_load_wifi_icon">WiFi圖示</string>
-    <string name="title_load_stop_image">車站圖片</string>
-    <string name="title_check_app_update">檢查更新</string>
-    <string name="title_hide_ad">隱藏廣告</string>
-    <string name="summary_on_hide_ad">除設定頁面，不顯示其他廣告</string>
+    <string name="title_load_wheelchair_icon">Wheelchair icon</string>
+    <string name="title_load_wifi_icon">WiFi icon</string>
+    <string name="title_load_stop_image">Stop image</string>
+    <string name="title_check_app_update">Check update</string>
+    <string name="title_hide_ad">Hide ad</string>
+    <string name="summary_on_hide_ad">No other ads are shown except the settings page</string>
     <string name="summary_off_hide_ad">@null</string>
-    <string name="title_kmb_api">九巴API</string>
+    <string name="title_kmb_api">kmb_api</string>
 
-    <string name="message_app_update">新版本：%s</string>
-    <string name="message_confirm_clear_follow">你確定要清除追蹤名單？</string>
-    <string name="message_confirm_clear_search_history">你確定要清除搜尋記錄？</string>
-    <string name="message_clear_fail_follow">沒有清除任何記錄</string>
-    <string name="message_clear_fail_search_history">沒有清除任何記錄</string>
-    <string name="message_clear_success_follow">成功清除追蹤名單</string>
-    <string name="message_clear_success_search_history">成功清除搜尋記錄</string>
-    <string name="message_database_updating">數據庫更新中</string>
-    <string name="message_database_updated">數據庫經已更新</string>
-    <string name="message_fail_to_request">未能載入，請再試一次</string>
-    <string name="message_hide_ad">除設定頁面，其他廣告經已隱藏</string>
+    <string name="message_app_update">New Version：%s</string>
+    <string name="message_confirm_clear_follow">Are you sure you want to clear the tracking list？</string>
+    <string name="message_confirm_clear_search_history">Are you sure you want to clear your search history？</string>
+    <string name="message_clear_fail_follow">Did not clear any records</string>
+    <string name="message_clear_fail_search_history">Did not clear any records</string>
+    <string name="message_clear_success_follow">Successfully cleared the tracking list</string>
+    <string name="message_clear_success_search_history">Successfully cleared the search history</string>
+    <string name="message_database_updating">Database Updating</string>
+    <string name="message_database_updated">Database Updated</string>
+    <string name="message_fail_to_request">Failed to load, please try again</string>
+    <string name="message_hide_ad">In addition to the settings page, other ads have been hidden</string>
     <string name="message_hide_ad_smile">:)</string>
-    <string name="message_hide_ad_tip">試下SEARCH “%1$s”同“%2$s”</string>
-    <string name="message_loading">載入中&#8230;</string>
-    <string name="message_no_geo_app">沒有安裝地圖應用程式</string>
-    <string name="message_no_app_update">已經是最新版本</string>
-    <string name="message_no_data">暫時沒有資料</string>
-    <string name="message_no_internet_connection">請檢查網絡連線</string>
-    <string name="message_no_passenger_notice">暫時沒有任何通告</string>
-    <string name="message_remove_from_search_history">從搜尋記錄中移除</string>
-    <string name="message_remove_from_follow_list">從追蹤名單中移除</string>
-    <string name="message_request_hide_ad">收到! 除咗設定嗰頁，其他廣告都隱藏晒</string>
-    <string name="message_request_hide_ad_again">除咗設定嗰頁，其他廣告都已經隱藏晒，唔洗講咁多次!</string>
-    <string name="message_request_show_ad">所有廣告都唔再隱藏喇 :)</string>
-    <string name="message_share_title">同朋友分享 BusETA</string>
-    <string name="message_share_text">快啲下載 BusETA 巴士到站時間預報 App :)\nhttp://buseta.alvinhkh.com</string>
-    <string name="message_shown_as_notification">已顯示在通知欄</string>
-    <string name="message_total_routes">(共 %s 條路線)</string>
+    <string name="message_hide_ad_tip">Try search “%1$s” with “%2$s”</string>
+    <string name="message_loading">Loading&#8230;</string>
+    <string name="message_no_geo_app">No map app installed</string>
+    <string name="message_no_app_update">Already the latest version</string>
+    <string name="message_no_data">Temporarily no information</string>
+    <string name="message_no_internet_connection">Please check the network connection</string>
+    <string name="message_no_passenger_notice">No notice for the time being</string>
+    <string name="message_remove_from_search_history">Remove from search history</string>
+    <string name="message_remove_from_follow_list">Remove from tracking list</string>
+    <string name="message_request_hide_ad">Received! In addition to the settings page, other ads are hidden</string>
+    <string name="message_request_hide_ad_again">In addition to the setting page, other ads have been hidden in the sun,
+                                                    washing and speaking many times!
+    </string>
+    <string name="message_request_show_ad">All ads are hidden again :)</string>
+    <string name="message_share_title">Share with friends BusETA</string>
+    <string name="message_share_text">Quick download BusETA bus \n#Estimated time of arrival App :) \n http://buseta.alvinhkh.com</string>
+    <string name="message_shown_as_notification">Displayed in the notification bar</string>
+    <string name="message_total_routes">(Total %s routes)</string>
 
     <string name="url_app" translatable="false">http://buseta.alvinhkh.com</string>
     <string name="url_developer" translatable="false">http://www.alvinhkh.com</string>
 
     <string name="content_description_icon">Icon</string>
 
-    <string name="clear_history">清除搜尋記錄</string>
-    <string name="clear_follow">清除追蹤名單</string>
-    <string name="display">顯示</string>
-    <string name="hide">隱藏</string>
+    <string name="clear_history">Clear search history</string>
+    <string name="clear_follow">Clear tracking list</string>
+    <string name="display">Display</string>
+    <string name="hide">Hide</string>
     <string name="missing_input">Missing Input</string>
-    <string name="map">地圖</string>
-    <string name="streetview">街景</string>
-    <string name="route">路線</string>
-    <string name="route_path">從%1$s 往%2$s</string>
-    <string name="scheduled_bus">預定班次</string>
-    <string name="general">一般</string>
-    <string name="github_issues">問題回報 (via GitHub)</string>
+    <string name="map">Map</string>
+    <string name="streetview">Street View</string>
+    <string name="route">Route</string>
+    <string name="route_path">From %1$s to %2$s</string>
+    <string name="scheduled_bus">Scheduled Bus</string>
+    <string name="general">General</string>
+    <string name="github_issues">Problem return (via GitHub)</string>
     <string name="github_issues_url" translatable="false">https://github.com/alvinhkh/buseta/issues</string>
-    <string name="location_permission">位置權限</string>
-    <string name="permission_granted_yes">已經取得</string>
-    <string name="permission_granted_no">還未取得</string>
-    <string name="capacity_empty">空</string>
-    <string name="capacity_full">滿</string>
-    <string name="debug">測試</string>
-    <string name="auto_load">自動載入</string>
-    <string name="manual">手動</string>
-    <string name="replace">取代</string>
-    <string name="arrival_alert">到站落車</string>
-    <string name="arrival_alert_added">新增到站落車提示</string>
-    <string name="arrival_alert_existed">同時間只能設定一個到站落車提示</string>
-    <string name="arrival_alert_removed">移除了到站落車提示</string>
-    <string name="arrival_alert_entered">進入落車提示車站範圍</string>
-    <string name="arrival_alert_leaving">離開落車提示車站範圍</string>
-    <string name="arrival_alert_unknown">到站落車提示: 未知問題</string>
+    <string name="location_permission">Location permission</string>
+    <string name="permission_granted_yes">Already obtained</string>
+    <string name="permission_granted_no">Not yet available</string>
+    <string name="capacity_empty">0</string>
+    <string name="capacity_full">Full</string>
+    <string name="debug">Test</string>
+    <string name="auto_load">Autoload</string>
+    <string name="manual">Manual</string>
+    <string name="replace">Replace</string>
+    <string name="arrival_alert">Arrival and drop off</string>
+    <string name="arrival_alert_added">Add to the station drop-off tips</string>
+    <string name="arrival_alert_existed">Only one stop-to-send prompt can be set at the same time.</string>
+    <string name="arrival_alert_removed">Removed the arrival and delivery tips</string>
+    <string name="arrival_alert_entered">Entered the drop-off reminder station range</string>
+    <string name="arrival_alert_leaving">Leaving the drop-off reminder station range</string>
+    <string name="arrival_alert_unknown">Tips for getting off the station: Unknown problem</string>
 
     <string name="search_shortcut_short_label">@string/search_route</string>
     <string name="search_shortcut_long_label">@string/search_route</string>

@@ -1,19 +1,16 @@
 package com.alvinhkh.buseta.utils;
 
+import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.ImageSpan;
 
 import com.alvinhkh.buseta.C;
 import com.alvinhkh.buseta.R;
@@ -29,6 +26,7 @@ public class NotificationUtil {
 
     public static final String ETA_CHANNEL_ID = "CHANNEL_ID_ETA";
 
+    @SuppressLint("CheckResult")
     public static NotificationCompat.Builder showArrivalTime(@NonNull Context context, @NonNull BusRouteStop object) {
         SpannableStringBuilder smallContentTitle = new SpannableStringBuilder();
         SpannableStringBuilder smallText = new SpannableStringBuilder();
