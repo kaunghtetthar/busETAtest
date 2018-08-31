@@ -283,7 +283,7 @@ public class LwbActivity extends BaseActivity
                         busRoute.setLocationStartName(bound.origin_tc);
                         busRoute.setName(routeNo);
                         busRoute.setSequence(String.valueOf(i++));
-                        pagerAdapter.addSequence(busRoute);
+//                        pagerAdapter.addSequence(busRoute);
                         Log.v("TAG_KK", "bus_arr :" + String.valueOf(busRoute));
 
                     }

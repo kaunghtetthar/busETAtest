@@ -1,6 +1,7 @@
 package com.alvinhkh.buseta.kmb.ui;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -9,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -26,6 +28,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -54,6 +57,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
@@ -61,8 +65,19 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.maps.model.RoundCap;
+import com.google.maps.android.data.geojson.GeoJsonFeature;
+import com.google.maps.android.data.geojson.GeoJsonLayer;
+import com.google.maps.android.data.geojson.GeoJsonPointStyle;
 import com.google.maps.android.ui.IconGenerator;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,6 +119,11 @@ public class KmbStopListFragment extends Fragment implements
     private RecyclerView recyclerView;
 
     private BusRoute busRoute;
+
+    private GeoJsonFeature feature1;
+
+//    private ArrayList<GeoJsonFeature> feature1;
+
 
     private Integer goToStopPos;
 
@@ -232,7 +252,8 @@ public class KmbStopListFragment extends Fragment implements
             }
         }
 
-        disposables.add(kmbService.getStops(busRoute.getName(), busRoute.getSequence(), busRoute.getServiceType())
+
+        disposables.add(kmbService.getStops()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(routeStopsObserver(goToStopPos)));
@@ -389,6 +410,7 @@ public class KmbStopListFragment extends Fragment implements
                     new LatLng(Double.parseDouble(busRouteStops.get(goToStopPos).latitude),
                             Double.parseDouble(busRouteStops.get(goToStopPos).longitude)), 16));
         }
+        startDemo();
     }
 
     @Override
@@ -589,4 +611,149 @@ public class KmbStopListFragment extends Fragment implements
             }
         };
     }
+
+    /**
+     * Assigns a color based on the given magnitude
+     */
+    private static float magnitudeToColor(double magnitude) {
+        if (magnitude < 1.0) {
+            return BitmapDescriptorFactory.HUE_CYAN;
+        } else if (magnitude < 2.5) {
+            return BitmapDescriptorFactory.HUE_GREEN;
+        } else if (magnitude < 4.5) {
+            return BitmapDescriptorFactory.HUE_YELLOW;
+        } else {
+            return BitmapDescriptorFactory.HUE_RED;
+        }
+    }
+
+    protected int getLayoutId() {
+        return R.layout.fragment_main;
+    }
+
+
+    protected void startDemo() {
+        // Download the GeoJSON file.
+        retrieveFileFromUrl();
+        // Alternate approach of loading a local GeoJSON file.
+        //   retrieveFileFromResource();
+    }
+
+    private void retrieveFileFromUrl() {
+        new DownloadGeoJsonFile().execute("http://192.168.60.162/parking/route4.json");
+    }
+
+
+
+//    private void retrieveFileFromResource() {
+//
+//        try {
+//            GeoJsonLayer layer = new GeoJsonLayer(map,  R.raw.earthquakes_with_usa, this);
+//            addGeoJsonLayerToMap(layer);
+//        } catch (IOException e) {
+//            Log.e("go", "GeoJSON file could not be read");
+//        } catch (JSONException e) {
+//            Log.e("go", "GeoJSON file could not be converted to a JSONObject");
+//        }
+//    }
+
+    /**
+     * Adds a point style to all features to change the color of the marker based on its magnitude
+     * property
+     */
+    private void addColorsToMarkers(GeoJsonLayer layer) {
+        // Iterate over all the features stored in the layer
+
+        for (GeoJsonFeature feature : layer.getFeatures()) {
+
+            // Check if the magnitude property exists
+            if (feature.getProperty("mag") != null && feature.hasProperty("place")) {
+                double magnitude = Double.parseDouble(feature.getProperty("mag"));
+
+                // Get the icon for the feature
+                BitmapDescriptor pointIcon = BitmapDescriptorFactory
+                        .defaultMarker(magnitudeToColor(magnitude));
+
+                /* Create a new point style */
+                GeoJsonPointStyle pointStyle = new GeoJsonPointStyle();
+
+                // Set options for the point style
+                pointStyle.setIcon(pointIcon);
+                pointStyle.setTitle("Magnitude of " + magnitude);
+                pointStyle.setSnippet("Earthquake occurred " + feature.getProperty("place"));
+
+                // Assign the point style to the feature
+                feature.setPointStyle(pointStyle);
+
+                feature1 = feature;
+            }
+        }
+
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private class DownloadGeoJsonFile extends AsyncTask<String, Void, GeoJsonLayer> {
+
+        @Override
+        protected GeoJsonLayer doInBackground(String... params) {
+            try {
+                // Open a stream from the URL
+                InputStream stream = new URL(params[0]).openStream();
+
+                String line;
+                StringBuilder result = new StringBuilder();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+
+                while ((line = reader.readLine()) != null) {
+                    // Read and save each line of the stream
+                    result.append(line);
+                }
+
+                // Close the stream
+                reader.close();
+                stream.close();
+
+                return new GeoJsonLayer(map, new JSONObject(result.toString()));
+            } catch (IOException e) {
+                Log.e("go", "GeoJSON file could not be read");
+            } catch (JSONException e) {
+                Log.e("go", "GeoJSON file could not be converted to a JSONObject");
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(GeoJsonLayer layer) {
+            if (layer != null) {
+                addGeoJsonLayerToMap(layer);
+            }
+        }
+
+    }
+
+
+
+    private void addGeoJsonLayerToMap(GeoJsonLayer layer) {
+
+        addColorsToMarkers(layer);
+        layer.addLayerToMap();
+        // Demonstrate receiving features via GeoJsonLayer clicks.
+        //            @Override
+//            public void onFeatureClick(GeoJsonFeature geoJsonFeature) {
+////                Toast.makeText(MapsActivity.this,
+////                        "Feature clicked: " + geoJsonFeature.getProperty("name"),
+////                        Toast.LENGTH_SHORT).show();
+//            }
+        layer.setOnFeatureClickListener((GeoJsonLayer.GeoJsonOnFeatureClickListener) feature -> Toast.makeText(getContext(),
+"Feature clicked: " + feature.getProperty("name"),
+Toast.LENGTH_SHORT).show());
+
+
+
+
+
+    }
+
+
+
 }

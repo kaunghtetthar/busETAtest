@@ -32,7 +32,7 @@ public interface KmbService {
 
     Retrofit webSearch = new Retrofit.Builder()
             .client(App.httpClient)
-            .baseUrl("http://search.kmb.hk/KMBWebSite/Function/")
+            .baseUrl("http://192.168.60.162/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
@@ -40,14 +40,14 @@ public interface KmbService {
     @GET("FunctionRequest.ashx?action=getAnnounce")
     Observable<KmbAnnounceRes> getAnnounce(@Query("route") String route, @Query("bound") String bound);
 
-    @GET("FunctionRequest.ashx?action=getRouteBound")
-    Observable<KmbRouteBoundRes> getRouteBound(@Query("route") String route);
+    @GET("parking/getroutebound.json")
+    Observable<KmbRouteBoundRes> getRouteBound();
 
-    @GET("FunctionRequest.ashx?action=getSpecialRoute")
-    Observable<KmbSpecialRouteRes> getSpecialRoute(@Query("route") String route, @Query("bound") String bound);
+    @GET("parking/getspecialroute.json")
+    Observable<KmbSpecialRouteRes> getSpecialRoute();
 
-    @GET("FunctionRequest.ashx?action=getStops")
-    Observable<KmbStopsRes> getStops(@Query("route") String route, @Query("bound") String bound, @Query("serviceType") String serviceType);
+    @GET("parking/A41.json")
+    Observable<KmbStopsRes> getStops();
 
     Retrofit webSearchHtml = new Retrofit.Builder()
             .client(App.httpClient)
@@ -76,11 +76,11 @@ public interface KmbService {
 
     Retrofit etadatafeed = new Retrofit.Builder()
             .client(App.httpClient)
-            .baseUrl("http://etadatafeed.kmb.hk:1933")
+            .baseUrl("http://192.168.60.162/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build();
 
-    @GET("GetData.ashx?type=ETA_R")
+    @GET("/parking/bus_no.json")
     Observable<List<KmbEtaRoutes>> getEtaRoutes();
 }

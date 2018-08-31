@@ -271,7 +271,7 @@ public class KmbActivity extends BaseActivity
         }
         showLoadingView();
 
-        disposables.add(kmbService.getRouteBound(no)
+        disposables.add(kmbService.getRouteBound()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(getRouteBoundObserver()));
@@ -287,7 +287,7 @@ public class KmbActivity extends BaseActivity
                     for (KmbRouteBound bound : res.data) {
                         if (list.contains(bound.bound)) continue;
                         list.add(bound.bound);
-                        disposables.add(kmbService.getSpecialRoute(bound.route, String.valueOf(bound.bound))
+                        disposables.add(kmbService.getSpecialRoute()
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribeWith(getSpecialRouteObserver(bound.route)));
